@@ -1,11 +1,14 @@
 var colors = require ('colors');
+var x = 11;
+var y = 1;
 
-for (var i=10;i>0;i--){
-     var hearts='<3'.repeat(i);
-     console.log(colors.rainbow(hearts));
+function next() {
+    if (x-- <= y) return;
+    setTimeout(function() {
+        var hearts='<3'.repeat(x);
+        console.log(colors.rainbow(hearts));
+        next();
+    }, 1000);
 }
 
-//TERMINAL COMMANDS:
-//npm init
-//npm install --save colors
-//node descending-string.js
+next();
